@@ -1,13 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>
-
-    </title>
+    <title>Unit Converter</title>
 </head>
 <body>
-<h1>
-        basis of html revison and we are done. </h1>
+
+<h1>Unit Converter</h1>
+
+<form method="POST">
+
+    <label>Value:</label>
+    <input type="number" name="value" required>
+
+    <br><br>
+
+    <label>From:</label>
+    <select name="from_unit">
+        <option value="meter">Meter</option>
+        <option value="kilometer">Kilometer</option>
+    </select>
+
+    <br><br>
+
+    <label>To:</label>
+    <select name="to_unit">
+        <option value="meter">Meter</option>
+        <option value="kilometer">Kilometer</option>
+    </select>
+
+    <br><br>
+
+    <button type="submit">Convert</button>
+
+</form>
+
+{% if test %}
+    <h2> Answer: {{ test }}</h2>
+{% endif %}
+
 </body>
 </html>
