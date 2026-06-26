@@ -1,4 +1,6 @@
 from flask import Flask,render_template,request,redirect
+from converter import distance_conv #importaing distance conv function from converter py file
+
 
 
 app = Flask(__name__)
@@ -6,27 +8,20 @@ app = Flask(__name__)
 def home():
     result = None
     if request.method == "POST":
-        from_unit= request.form["from_unit"]
-        to_unit= request.form["to_unit"]
+        from_unit= request.form["from_unit"] #its stores the conversion part
+        to_unit= request.form["to_unit"]# same goes for this
 
-        value = float(request.form["value"])
-        result = convert(
+        value = float(request.form["value"])# stores the numeric value from website as float
+        result = distance_conv(
             value,
             from_unit,
             to_unit
         )
 
-    return render_template("index.html", test=result)
+    return render_template("index.html", test=result) #here test is a variable in website which holds the value of variable result in python
 
 
-def convert(value,from_unit,to_unit):
 
-    if from_unit == "meter" and to_unit == "kilometer":
-        return value/1000
-    elif from_unit == "kilometer" and to_unit == "meter":
-        return value * 1000
-
-    return value
 
 
 
