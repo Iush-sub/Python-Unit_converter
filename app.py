@@ -1,5 +1,5 @@
 from flask import Flask,render_template,request,redirect
-from converter import distance_conv #importaing distance conv function from converter py file
+from converter import conv #importaing distance conv function from converter py file
 
 
 
@@ -10,12 +10,13 @@ def home():
     if request.method == "POST":
         from_unit= request.form["from_unit"] #its stores the conversion part
         to_unit= request.form["to_unit"]# same goes for this
-
+        category= request.form["category"]
         value = float(request.form["value"])# stores the numeric value from website as float
-        result = distance_conv(
+        result = conv(
             value,
             from_unit,
-            to_unit
+            to_unit,
+            category
         )
 
     return render_template("index.html", test=result) #here test is a variable in website which holds the value of variable result in python

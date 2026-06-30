@@ -6,13 +6,21 @@ length_unit = {
     "inch": 0.0254
 }
 
+varrity= {
+    "length":length_unit,
+    "Area":{
+        "meter sq":1,
+        "kilometer sq":1000*1000
+
+    }
+    "weight":
+}
 
 
 
 
 
-
-def distance_conv(value,from_unit,to_unit):
+def conv(value,from_unit,to_unit,category):
 
     base= value * length_unit[from_unit]
     ans = base / length_unit[to_unit]

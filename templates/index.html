@@ -8,35 +8,13 @@
 <h1>Unit Converter</h1>
 
 <form method="POST">
+<select name="category" id="category">
+    <option value="length">Length</option>
+    <option value="weight">Weight</option>
+    <option value="temperature">Temperature</option>
+    <option value="time">Time</option>
+</select>
 
-    <label>Value:</label>
-    <input type="number" name="value" required>
-
-    <br><br>
-
-    <label>From:</label>
-    <select name="from_unit">
-        <option value="meter">Meter</option>
-        <option value="kilometer">Kilometer</option>
-        <option value="centimeter">Centimeter</option>
-        <option value="millimeter">Millimeter</option>
-        <option value="inch">Inch</option>500
-    </select>
-
-    <br><br>
-
-    <label>To:</label>
-    <select name="to_unit">
-        <option value="meter">Meter</option>
-        <option value="kilometer">Kilometer</option>
-        <option value="centimeter">Centimeter</option>
-        <option value="millimeter">Millimeter</option>
-        <option value="inch">Inch</option>
-    </select>
-
-    <br><br>
-
-    <button type="submit">Convert</button>
 
 </form>
 
