@@ -1,6 +1,6 @@
 from flask import Flask,render_template,request,redirect
 from converter import conv #importaing distance conv function from converter py file
-
+from converters.weight import convert_weight
 
 
 app = Flask(__name__)
@@ -12,12 +12,21 @@ def home():
         to_unit= request.form["to_unit"]# same goes for this
         category= request.form["category"]
         value = float(request.form["value"])# stores the numeric value from website as float
-        result = conv(
-            value,
-            from_unit,
-            to_unit,
-            category
-        )
+        if category == "length":
+            result = conv(value, from_unit, to_unit)
+
+        elif category == "weight":
+            result = convert_weight(
+                value,
+                from_unit,
+                to_unit
+            )
+
+        elif category == "temperature":
+            result = None
+
+        elif category == "time":
+            result = None
 
     return render_template("index.html", test=result) #here test is a variable in website which holds the value of variable result in python
 
